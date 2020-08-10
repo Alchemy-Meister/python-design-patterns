@@ -1,0 +1,9 @@
+[run]
+branch = True
+parallel = True
+source = design_pytterns
+
+[paths]
+source =
+  src
+  .tox/*/site-packages/
