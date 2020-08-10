@@ -10,7 +10,6 @@ install_requires = []
 
 tests_require = [
     'coverage',
-    'coveralls',
     'pytest',
     'pytest-cov'
 ]
