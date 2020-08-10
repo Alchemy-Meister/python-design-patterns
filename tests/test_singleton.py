@@ -18,9 +18,4 @@ def subclass_definition():
     return MySingletonClass
 
 def test_same_instance(Subclass):
-    a_singleton = Subclass(1, 2)
-    b_singleton = Subclass(3, 4)
-    c_singleton = Subclass()
-
-    assert dir(a_singleton) == dir(b_singleton) == dir(c_singleton)
-    assert a_singleton == b_singleton == c_singleton
+    assert id(Subclass(1, 2)) == id(Subclass())
