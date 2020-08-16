@@ -6,7 +6,7 @@
 
 from setuptools import setup, find_packages
 
-with open('README.md', 'r', 'utf-8') as readme_file:
+with open('README.md', 'r') as readme_file:
     readme = readme_file.read()
 
 install_requires = []
@@ -20,7 +20,7 @@ tests_require = [
 extras_require = {'tests': tests_require}
 
 setup(
-    name='design_pytterns',
+    name='design-pytterns',
     version='0.1.0',
     url='https://github.com/Alchemy-Meister/python-design-patterns',
     author='Alchemy-Meister',
