@@ -5,3 +5,4 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 from .factory import Factory
+from .subclass_factory import SubclassFactory
