@@ -24,6 +24,7 @@ setup(
     version='0.1.0',
     url='https://github.com/Alchemy-Meister/python-design-patterns',
     author='Alchemy-Meister',
+    author_email='meister.alchemy@gmail.com',
     license='GPLv3+',
     description="Implementation of Basic Python Design Patters",
     long_description=readme,
