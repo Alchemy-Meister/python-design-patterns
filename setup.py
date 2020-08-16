@@ -6,6 +6,9 @@
 
 from setuptools import setup, find_packages
 
+with open('README.md', 'r', 'utf-8') as readme_file:
+    readme = readme_file.read()
+
 install_requires = []
 
 tests_require = [
@@ -23,7 +26,9 @@ setup(
     author='Alchemy-Meister',
     license='GPLv3+',
     description="Implementation of Basic Python Design Patters",
-    keywords="Design Patterns, Singleton",
+    long_description=readme,
+    long_description_content_type='text/markdown',
+    keywords="Design Patterns, Singleton, Factory, Observer",
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'License :: OSI Approved :: '
