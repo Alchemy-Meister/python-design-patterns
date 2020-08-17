@@ -7,6 +7,8 @@
 import logging
 from typing import Any, Hashable, MutableMapping, Optional
 
+from design_pytterns.errors import UnregisteredClassIdError
+
 class Factory():
 
     __LOGGER = logging.getLogger(__name__)
@@ -32,4 +34,7 @@ class Factory():
         self._registered_classes[class_id] = class_type
 
     def create(self, class_id: Hashable, *args: Any, **kwargs: Any) -> Any:
-        return self._registered_classes[class_id](*args, **kwargs)
+        if class_id in self._registered_classes:
+            return self._registered_classes[class_id](*args, **kwargs)
+
+        raise UnregisteredClassIdError(class_id)
