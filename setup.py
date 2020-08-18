@@ -4,7 +4,15 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+from os.path import abspath, dirname, join
 from setuptools import setup, find_packages
+
+about = {}
+
+with open(
+        join(dirname(abspath(__file__)), 'src/design_pytterns/_about.py'), 'r'
+) as about_file:
+    exec(about_file.read(), about) # noqa
 
 with open('README.md', 'r') as readme_file:
     readme = readme_file.read()
@@ -20,13 +28,13 @@ tests_require = [
 extras_require = {'tests': tests_require}
 
 setup(
-    name='design-pytterns',
-    version='0.1.0',
-    url='https://github.com/Alchemy-Meister/python-design-patterns',
-    author='Alchemy-Meister',
-    author_email='meister.alchemy@gmail.com',
-    license='GPLv3+',
-    description="Implementation of Basic Python Design Patters",
+    name=about['__title__'],
+    version=about['__version__'],
+    url=about['__url__'],
+    author=about['__author__'],
+    author_email=about['__author_email__'],
+    license=about['__license__'],
+    description=about['__description__'],
     long_description=readme,
     long_description_content_type='text/markdown',
     keywords="Design Patterns, Singleton, Factory, Observer",
