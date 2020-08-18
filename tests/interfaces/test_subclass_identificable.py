@@ -41,12 +41,12 @@ def test_subclass_invalid_none_identifier_value():
         pass
 
     with raises(ValueError):
-        class Son(Father):
+        class _Son(Father):
             pass
 
 def test_base_unhashable_identifier():
     with raises(TypeError):
-        class Father(SubclassIdentificable, class_id={'is_dad': True}):
+        class _Father(SubclassIdentificable, class_id={'is_dad': True}):
             pass
 
 def test_subclass_unhashable_identifier():
@@ -57,5 +57,5 @@ def test_subclass_unhashable_identifier():
         pass
 
     with raises(TypeError):
-        class Son(Father, Mother, class_id=['dad', 'mom']):
+        class _Son(Father, Mother, class_id=['dad', 'mom']):
             pass
