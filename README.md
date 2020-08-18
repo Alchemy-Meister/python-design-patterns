@@ -5,6 +5,6 @@
 [![Pypi version](https://img.shields.io/pypi/v/design-pytterns.svg)](https://pypi.org/pypi/design-pytterns/)
 [![Python versions](https://img.shields.io/pypi/pyversions/design-pytterns.svg)](https://pypi.python.org/pypi/design-pytterns/)
 
-Python Design Patters
+Python Design Patterns
 
 TO-DO
