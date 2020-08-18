@@ -6,3 +6,5 @@
 
 from .design_pyttern_error import DesignPytternError
 from .unregistered_class_id_error import UnregisteredClassIdError
+
+__all__ = ['DesignPytternError', 'UnregisteredClassIdError']

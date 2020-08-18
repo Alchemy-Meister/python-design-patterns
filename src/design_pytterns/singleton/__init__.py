@@ -6,3 +6,5 @@
 
 from .singleton import Singleton
 from .singleton_meta import SingletonMeta
+
+__all__ = ['Singleton', 'SingletonMeta']
