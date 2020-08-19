@@ -6,6 +6,7 @@
 
 from typing import Any
 
+
 class DesignPytternError(Exception):
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         self.message = kwargs.pop('message', '')

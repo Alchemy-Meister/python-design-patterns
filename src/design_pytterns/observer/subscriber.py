@@ -7,6 +7,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+
 class Subscriber(ABC):
     @abstractmethod
     def update(self, *args: Any, **kwargs: Any):

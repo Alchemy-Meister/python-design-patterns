@@ -6,6 +6,7 @@
 
 from typing import Any, Dict, Tuple
 
+
 class SingletonMeta(type):
     def __init__(
             cls, name: str, bases: Tuple[type, ...], mmbs: Dict[str, Any]

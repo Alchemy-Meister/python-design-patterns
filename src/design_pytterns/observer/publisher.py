@@ -8,6 +8,7 @@ from typing import Any, List
 
 from .subscriber import Subscriber
 
+
 class Publisher():
     def __init__(self):
         self._subscribers: List[Subscriber] = []

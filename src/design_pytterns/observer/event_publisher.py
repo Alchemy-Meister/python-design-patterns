@@ -9,6 +9,7 @@ from typing import Any, Hashable, Sequence
 from .publisher import Publisher
 from .subscriber import Subscriber
 
+
 class EventPublisher():
     def __init__(self, events: Sequence[Hashable]):
         self._publishers = {event: Publisher() for event in events}

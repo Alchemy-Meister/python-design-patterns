@@ -5,6 +5,7 @@ from typing import MutableMapping, Type
 
 from design_pytterns.interfaces import SubclassIdentificable
 
+
 class ConcreteSubclassRegister():
 
     __LOGGER = logging.getLogger(__name__)

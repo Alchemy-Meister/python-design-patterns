@@ -7,6 +7,7 @@
 from collections.abc import Hashable
 from typing import Any, Optional
 
+
 class SubclassIdentificable():
     def __init_subclass__(
             cls, class_id: Optional[Hashable] = None, **kwargs: Any
