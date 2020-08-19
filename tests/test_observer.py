@@ -10,6 +10,7 @@ import pytest
 
 from design_pytterns.observer import EventPublisher, Publisher, Subscriber
 
+
 @pytest.fixture(name='my_subscriber_class')
 def subclass_definition():
     class MySubscriberClass(Subscriber):
@@ -25,11 +26,13 @@ def subclass_definition():
 
     return MySubscriberClass
 
+
 def test_remove_unknown_subscriber(my_subscriber_class):
     publisher = Publisher()
     unknown_subscriber = my_subscriber_class()
 
     publisher.unsubscribe(unknown_subscriber)
+
 
 def test_single_notification_duplicated_subscriber(my_subscriber_class):
     publisher = Publisher()
@@ -43,6 +46,7 @@ def test_single_notification_duplicated_subscriber(my_subscriber_class):
     publisher.notify()
 
     assert subscriber.update_call_counter == 1
+
 
 def test_dont_notify_unsubscriber(my_subscriber_class):
     publisher = Publisher()
@@ -67,6 +71,7 @@ def test_dont_notify_unsubscriber(my_subscriber_class):
 
     assert subscriber.update_call_counter == 2
     assert unsubscriber.update_call_counter == 1
+
 
 def test_event_publisher(my_subscriber_class):
     publisher = EventPublisher(('start', 'finish',))

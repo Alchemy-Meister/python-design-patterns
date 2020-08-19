@@ -8,6 +8,7 @@ import pytest
 
 from design_pytterns.singleton import Singleton
 
+
 @pytest.fixture(name='Subclass')
 def subclass_definition():
     class MySingletonClass(Singleton):
@@ -16,6 +17,7 @@ def subclass_definition():
             self.kwargs = kwargs
 
     return MySingletonClass
+
 
 def test_same_instance(Subclass):
     assert id(Subclass(1, 2)) == id(Subclass())

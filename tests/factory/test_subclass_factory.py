@@ -12,6 +12,7 @@ from design_pytterns.factory import SubclassFactory
 from design_pytterns.errors import UnregisteredClassIdError
 from design_pytterns.interfaces import SubclassIdentificable
 
+
 @fixture(name='class_hierarchy_dict')
 def class_hierarchy():
     class MyBaseClass(SubclassIdentificable):
@@ -56,6 +57,7 @@ def class_hierarchy():
         'class8': Class8
     }
 
+
 def test_automatic_concrete_class_registration(class_hierarchy_dict):
     my_subclass_factory = SubclassFactory(class_hierarchy_dict['base'])
 
@@ -69,10 +71,12 @@ def test_automatic_concrete_class_registration(class_hierarchy_dict):
         my_subclass_factory.create(8), class_hierarchy_dict['class8']
     )
 
+
 def test_abstract_class_omitted(class_hierarchy_dict):
     my_subclass_factory = SubclassFactory(class_hierarchy_dict['base'])
     with raises(UnregisteredClassIdError):
         my_subclass_factory.create(7)
+
 
 def test_unidentificable_base_class():
     class MyUnidentificableBaseClass():
@@ -83,6 +87,7 @@ def test_unidentificable_base_class():
 
     with raises(TypeError):
         SubclassFactory(MyUnidentificableBaseClass)
+
 
 def test_repeated_class_id_warning(caplog, class_hierarchy_dict):
     class Class9(class_hierarchy_dict['class8'], class_id=1):

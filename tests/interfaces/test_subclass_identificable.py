@@ -8,17 +8,20 @@ from pytest import raises
 
 from design_pytterns.interfaces import SubclassIdentificable
 
+
 def test_base_class_with_class_id():
     class Father(SubclassIdentificable, class_id=0xABC):
         pass
 
     assert Father.CLASS_ID == 0xABC
 
+
 def test_base_class_none_class_id():
     class Father(SubclassIdentificable):
         pass
 
     assert Father.CLASS_ID is None
+
 
 def test_multiple_inheritance():
     class Father(SubclassIdentificable):
@@ -36,6 +39,7 @@ def test_multiple_inheritance():
     assert Son.CLASS_ID == 'me'
     assert GrandSon.CLASS_ID == 'my_son'
 
+
 def test_subclass_invalid_none_identifier_value():
     class Father(SubclassIdentificable):
         pass
@@ -44,10 +48,12 @@ def test_subclass_invalid_none_identifier_value():
         class _Son(Father):
             pass
 
+
 def test_base_unhashable_identifier():
     with raises(TypeError):
         class _Father(SubclassIdentificable, class_id={'is_dad': True}):
             pass
+
 
 def test_subclass_unhashable_identifier():
     class Father(SubclassIdentificable):
