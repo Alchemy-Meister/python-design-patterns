@@ -12,7 +12,7 @@ about = {}
 with open(
         join(dirname(abspath(__file__)), 'src/design_pytterns/_about.py'), 'r'
 ) as about_file:
-    exec(about_file.read(), about) # nosec
+    exec(about_file.read(), about)  # nosec
 
 with open('README.md', 'r') as readme_file:
     readme = readme_file.read()
