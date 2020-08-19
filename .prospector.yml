@@ -5,6 +5,9 @@ doc-warnings: true
 test-warnings: false
 member-warnings: false
 
+ignore-paths:
+  - tests
+
 pyroma:
   run: true
 
@@ -12,6 +15,7 @@ pep8:
   full: true
 
 pep257:
+  run: true
   # see http://pep257.readthedocs.io/en/latest/error_codes.html
   disable: [
     # For short descriptions it makes sense not to end with a period:
