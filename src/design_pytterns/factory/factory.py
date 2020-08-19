@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-"""Generic Factory-pattern"""
+"""Generic Factory-pattern."""
 
 import logging
 from typing import Any, Hashable, MutableMapping, Optional
