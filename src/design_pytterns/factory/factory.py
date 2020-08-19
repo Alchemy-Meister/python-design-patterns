@@ -11,6 +11,7 @@ from typing import Any, Hashable, MutableMapping, Optional
 
 from design_pytterns.errors import UnregisteredClassIdError
 
+
 class Factory():
     """
     Generic Factory-pattern based on hashable id class registration.
@@ -69,8 +70,8 @@ class Factory():
         class_id : Hashable
             The class identifer.
         *args : Any
-            Variable length arguments of the class constructor associated to the
-            value of `class_id`.
+            Variable length arguments of the class constructor associated to
+            the value of `class_id`.
         **kwargs: Any
             Keyword arguments of class constructor associated to the value of
             `class_id`.
