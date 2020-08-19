@@ -16,9 +16,11 @@ from .factory import Factory
 
 class SubclassFactory(Factory):
     """
+    Automatic concrete sublass registration factory.
+
     Factory that analizes the subclass hierarchy of the given base class that
-    inherits from `SubclassIdentificable`_ and registers all of the concrete
-    subclasses with their associated class id.
+    inherits from `SubclassIdentificable` and registers all of the concrete
+    subclasses with their associated class id automatically.
 
     Parameters
     ----------
