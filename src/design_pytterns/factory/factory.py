@@ -13,7 +13,7 @@ from design_pytterns.errors import UnregisteredClassIdError
 
 class Factory():
     """
-    Generic Factory-pattern based on hashable id. class registration.
+    Generic Factory-pattern based on hashable id class registration.
 
     Parameters
     ----------
