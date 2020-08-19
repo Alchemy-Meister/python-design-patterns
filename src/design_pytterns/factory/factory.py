@@ -12,7 +12,8 @@ from typing import Any, Hashable, MutableMapping, Optional
 from design_pytterns.errors import UnregisteredClassIdError
 
 class Factory():
-    """Generic Factory-pattern based on hashable id. class registration.
+    """
+    Generic Factory-pattern based on hashable id. class registration.
 
     Parameters
     ----------
@@ -32,7 +33,8 @@ class Factory():
             self._registered_classes = registered_classes
 
     def register_class(self, class_id: Hashable, class_type: type) -> None:
-        """Registers a class by its identifier.
+        """
+        Registers a class by its identifier.
 
         Parameters
         ----------
@@ -58,8 +60,9 @@ class Factory():
         self._registered_classes[class_id] = class_type
 
     def create(self, class_id: Hashable, *args: Any, **kwargs: Any) -> Any:
-        """Creates an instance of a class type given its idenfier and
-        constructor arguments.
+        """
+        Creates an instance of a class type given its idenfier and constructor
+        arguments.
 
         Parameters
         ----------
