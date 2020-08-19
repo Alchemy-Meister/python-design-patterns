@@ -1,3 +1,16 @@
+output-format: grouped
+
+strictness: veryhigh
+doc-warnings: true
+test-warnings: true
+member-warnings: false
+
+pyroma:
+  run: true
+
+pep8:
+  full: true
+
 pep257:
   # see http://pep257.readthedocs.io/en/latest/error_codes.html
   disable: [
