@@ -5,6 +5,8 @@ doc-warnings: true
 test-warnings: false
 member-warnings: false
 
+autodetect: false
+
 ignore-paths:
   - tests
 
