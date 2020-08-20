@@ -27,6 +27,7 @@ class SubclassFactory(Factory):
     base_class: SubclassIdentificable
         The base class that servers as the starting point of the subclass
         hierarchy analysis.
+
     """
 
     def __init__(self, base_class: Type[SubclassIdentificable]):
