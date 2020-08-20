@@ -15,8 +15,11 @@ pep8:
   full: true
 
 pep257:
-  # see http://pep257.readthedocs.io/en/latest/error_codes.html
   disable:
+    - D105
+    - D107
     - D203
+    - D212
+    - D212
     - D400
   run: true
