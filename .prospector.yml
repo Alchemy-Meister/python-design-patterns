@@ -8,6 +8,9 @@ member-warnings: false
 ignore-paths:
   - tests
 
+bandit:
+  run: true
+
 pyroma:
   run: true
 
