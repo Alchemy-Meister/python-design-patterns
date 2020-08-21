@@ -36,7 +36,7 @@ class Factory():
 
     def register_class(self, class_id: Hashable, class_type: type) -> None:
         """
-        Register a class by its identifier.
+        Register a class by a hashable identifier.
 
         Parameters
         ----------
@@ -65,6 +65,9 @@ class Factory():
         """
         Create a class instance given its idenfier and constructor arguments.
 
+        .. versionchanged:: 0.2.0 raises `UnregisteredClassIdError` instead of
+            `TypeError`.
+
         Parameters
         ----------
         class_id : Hashable
@@ -85,8 +88,6 @@ class Factory():
         ------
         UnregisteredClassIdError
             If `class_id` is unknown.
-
-            .. versionadded:: 0.2.0
 
         """
         if class_id in self._registered_classes:
