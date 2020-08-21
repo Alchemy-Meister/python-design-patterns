@@ -8,6 +8,7 @@ member-warnings: false
 autodetect: false
 
 ignore-paths:
+  - docs
   - tests
 
 bandit:
