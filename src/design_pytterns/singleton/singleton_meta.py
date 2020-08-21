@@ -4,10 +4,14 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+"""Singleton metaclass."""
+
 from typing import Any, Dict, Tuple
 
 
 class SingletonMeta(type):
+    """Metaclass implementation of Singleton-pattern."""
+
     def __init__(
             cls, name: str, bases: Tuple[type, ...], mmbs: Dict[str, Any]
     ) -> None:
