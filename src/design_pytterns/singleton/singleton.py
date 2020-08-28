@@ -21,23 +21,23 @@ class Singleton(metaclass=SingletonMeta):
 
     Examples
     --------
-        >>> from design_pytterns.singleton import Singleton
-        >>>
-        >>> class MyNumber(Singleton):
-        ...     def __init__(self, number):
-        ...         self.number = number
-        ...     def __str__(self):
-        ...         return self.number
-        ...
-        >>> test_1 = MyNumber(5)
-        >>> test_2 = MyNumber()  # No TypeError is raised
-        >>> test_3 = MyNumber(10)
-        >>>
-        >>> id(test_1), test_1
-        (139703749013216, 5)
-        >>> id(test_2), test_2
-        (139703749013216, 5)
-        >>> id(test_3), test_3
-        (139703749013216, 5)
+    >>> from design_pytterns.singleton import Singleton
+    >>>
+    >>> class MyNumber(Singleton):
+    ...     def __init__(self, number):
+    ...         self.number = number
+    ...     def __str__(self):
+    ...         return self.number
+    ...
+    >>> test_1 = MyNumber(5)
+    >>> test_2 = MyNumber()  # No TypeError is raised
+    >>> test_3 = MyNumber(10)
+    >>>
+    >>> id(test_1), test_1
+    (139703749013216, 5)
+    >>> id(test_2), test_2
+    (139703749013216, 5)
+    >>> id(test_3), test_3
+    (139703749013216, 5)
 
     """
