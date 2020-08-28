@@ -18,6 +18,7 @@ pylint:
   run: true
   disable:
     - exec-used  # already checked by bandit
+    - missing-class-docstring  # already checked by pep257
 
 pyroma:
   run: true
