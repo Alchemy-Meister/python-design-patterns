@@ -10,12 +10,12 @@ from pytest import fixture, raises
 
 from design_pytterns.factory import SubclassFactory
 from design_pytterns.errors import UnregisteredClassIdError
-from design_pytterns.interfaces import SubclassIdentificable
+from design_pytterns.interfaces import SubclassIdentifiable
 
 
 @fixture(name='class_hierarchy_dict')
 def class_hierarchy():
-    class MyBaseClass(SubclassIdentificable):
+    class MyBaseClass(SubclassIdentifiable):
         pass
 
     class Class1(MyBaseClass, class_id=1):
@@ -78,15 +78,15 @@ def test_abstract_class_omitted(class_hierarchy_dict):
         my_subclass_factory.create(7)
 
 
-def test_unidentificable_base_class():
-    class MyUnidentificableBaseClass():
+def test_unidentifiable_base_class():
+    class MyUnidentifiableBaseClass():
         pass
 
-    class _UnidentificableClass1(MyUnidentificableBaseClass):
+    class _UnidentifiableClass1(MyUnidentifiableBaseClass):
         pass
 
     with raises(TypeError):
-        SubclassFactory(MyUnidentificableBaseClass)
+        SubclassFactory(MyUnidentifiableBaseClass)
 
 
 def test_repeated_class_id_warning(caplog, class_hierarchy_dict):
