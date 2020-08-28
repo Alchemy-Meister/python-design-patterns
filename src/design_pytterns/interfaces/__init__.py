@@ -4,6 +4,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-from .subclass_identificable import SubclassIdentificable
+from .subclass_identifiable import SubclassIdentifiable
 
-__all__ = ['SubclassIdentificable']
+__all__ = ['SubclassIdentifiable']

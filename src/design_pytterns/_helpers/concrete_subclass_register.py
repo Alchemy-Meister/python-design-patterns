@@ -11,24 +11,24 @@ from inspect import isabstract
 import logging
 from typing import MutableMapping, Type
 
-from design_pytterns.interfaces import SubclassIdentificable
+from design_pytterns.interfaces import SubclassIdentifiable
 
 
 class ConcreteSubclassRegister():
 
     __LOGGER = logging.getLogger(__name__)
 
-    def __init__(self, base_class: Type[SubclassIdentificable]) -> None:
-        if not issubclass(base_class, SubclassIdentificable):
+    def __init__(self, base_class: Type[SubclassIdentifiable]) -> None:
+        if not issubclass(base_class, SubclassIdentifiable):
             raise TypeError(
-                f'unidentificable base class: {repr(base_class.__name__)}'
+                f'unidentifiable base class: {repr(base_class.__name__)}'
             )
 
         self.registered_classes = self._register_subclasses(base_class)
 
     def _register_subclasses(
-            self, base_class: Type[SubclassIdentificable]
-    ) -> MutableMapping[Hashable, Type[SubclassIdentificable]]:
+            self, base_class: Type[SubclassIdentifiable]
+    ) -> MutableMapping[Hashable, Type[SubclassIdentifiable]]:
         registered_classes = {}
 
         current_class = base_class
