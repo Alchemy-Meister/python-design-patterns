@@ -19,7 +19,7 @@ class Factory():
     Parameters
     ----------
     registered_classes: dict, optional
-        A dictionary that maps the hashable idetifiers with their class types.
+        A dictionary that maps the hashable identifiers with their class types.
 
     """
 
@@ -63,7 +63,7 @@ class Factory():
 
     def create(self, class_id: Hashable, *args: Any, **kwargs: Any) -> Any:
         """
-        Create a class instance given its idenfier and constructor arguments.
+        Create a class instance given its identifier and constructor arguments.
 
         .. versionchanged:: 0.2.0 raises `UnregisteredClassIdError` instead of
             `TypeError`.
