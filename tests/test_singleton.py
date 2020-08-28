@@ -12,7 +12,8 @@ from design_pytterns.singleton import Singleton
 @pytest.fixture(name='Subclass')
 def subclass_definition():
     class MySingletonClass(Singleton):
-        def __init__(self, *args, **kwargs):
+        def __init__(self, arg, *args, **kwargs):
+            self.arg = arg
             self.args = args
             self.kwargs = kwargs
 
@@ -20,4 +21,8 @@ def subclass_definition():
 
 
 def test_same_instance(Subclass):
-    assert id(Subclass(1, 2)) == id(Subclass())
+    assert id(Subclass(1, 2)) == id(Subclass(3,4))
+
+def test_no_type_error_raised(Subclass):
+    Subclass(1)
+    Subclass()
