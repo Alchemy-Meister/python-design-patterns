@@ -14,6 +14,11 @@ ignore-paths:
 bandit:
   run: true
 
+pylint:
+  run: true
+  disable:
+    - exec-used  # already checked by bandit
+
 pyroma:
   run: true
 
