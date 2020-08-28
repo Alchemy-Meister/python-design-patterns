@@ -1,37 +1,26 @@
 design\_pytterns.observer package
 =================================
 
-Submodules
-----------
+EventPublisher class
+--------------------
 
-design\_pytterns.observer.event\_publisher module
--------------------------------------------------
-
-.. automodule:: design_pytterns.observer.event_publisher
+.. autoclass:: design_pytterns.observer.EventPublisher
    :members:
    :undoc-members:
    :show-inheritance:
 
-design\_pytterns.observer.publisher module
-------------------------------------------
-
-.. automodule:: design_pytterns.observer.publisher
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-design\_pytterns.observer.subscriber module
--------------------------------------------
-
-.. automodule:: design_pytterns.observer.subscriber
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
+Publisher class
 ---------------
 
-.. automodule:: design_pytterns.observer
+.. autoclass:: design_pytterns.observer.Publisher
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subscriber
+----------
+
+.. autoclass:: design_pytterns.observer.Subscriber
    :members:
    :undoc-members:
    :show-inheritance:

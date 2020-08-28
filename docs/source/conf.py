@@ -12,6 +12,9 @@
 #
 import os
 import sys
+
+import sphinx_theme
+
 sys.path.insert(0, os.path.abspath('../../src'))
 
 
@@ -67,5 +70,4 @@ html_static_path = ['_static']
 # html_sidebars = {}
 #---sphinx-themes-----
 html_theme = 'neo_rtd_theme'
-import sphinx_theme
 html_theme_path = [sphinx_theme.get_html_theme_path()]
