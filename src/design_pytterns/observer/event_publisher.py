@@ -13,7 +13,15 @@ from .subscriber import Subscriber
 
 
 class EventPublisher():
-    """"""
+    """
+    Event based Publisher-pattern.
+
+    Parameters
+    ----------
+    events: Sequence
+        The sequence that contains all the possible hashable events
+
+    """
 
     def __init__(self, events: Sequence[Hashable]):
         self._publishers = {event: Publisher() for event in events}

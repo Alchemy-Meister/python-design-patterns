@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-""""""
+"""Implementation of SubclassIdentifiable interface-like class."""
 
 from collections.abc import Hashable
 from typing import Any, Optional

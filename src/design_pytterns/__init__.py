@@ -5,6 +5,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 
+"""Python Design Patterns."""
+
 from ._about import (
     __author__,
     __author_email__,

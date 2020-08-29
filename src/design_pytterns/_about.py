@@ -4,6 +4,8 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+"""Subpackage with the definition of the metadata of Design-Pyttern package."""
+
 __author__ = 'Alchemy-Meister'
 __author_email__ = 'meister.alchemy@gmail.com'
 __description__ = 'Implementation of Basic Python Design Patters'
