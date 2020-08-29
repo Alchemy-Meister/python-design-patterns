@@ -20,6 +20,7 @@ pylint:
     - exec-used
     - missing-class-docstring
     - missing-module-docstring
+    - too-few-public-methods
 
 pyroma:
   run: true
