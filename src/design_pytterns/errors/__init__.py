@@ -7,6 +7,11 @@
 """Subpackage with the exception definitions."""
 
 from .design_pyttern_error import DesignPytternError
+from .unidentifiable_subclass_error import UnidentifiableSubclassError
 from .unregistered_class_id_error import UnregisteredClassIdError
 
-__all__ = ['DesignPytternError', 'UnregisteredClassIdError']
+__all__ = [
+    'DesignPytternError',
+    'UnidentifiableSubclassError',
+    'UnregisteredClassIdError'
+]

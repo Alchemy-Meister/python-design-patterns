@@ -11,6 +11,7 @@ from inspect import isabstract
 import logging
 from typing import MutableMapping, Type
 
+from design_pytterns.errors import UnidentifiableSubclassError
 from design_pytterns.interfaces import SubclassIdentifiable
 
 
@@ -30,8 +31,11 @@ class ConcreteSubclassRegister():
 
     Raises
     ------
-    TypeError
+    UnidentifiableSubclassError
         If `base_class` does not inherit from SubclassIdentifiable.
+
+    .. versionchanged:: 0.3.0 raises `UnidentifiableSubclassError` instead of
+            `TypeError`.
 
     """
 
@@ -39,9 +43,7 @@ class ConcreteSubclassRegister():
 
     def __init__(self, base_class: Type[SubclassIdentifiable]) -> None:
         if not issubclass(base_class, SubclassIdentifiable):
-            raise TypeError(
-                f'unidentifiable base class: {repr(base_class.__name__)}'
-            )
+            raise UnidentifiableSubclassError(base_class)
 
         self.registered_classes = self._register_subclasses(base_class)
 

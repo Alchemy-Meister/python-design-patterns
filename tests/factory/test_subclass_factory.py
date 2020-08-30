@@ -9,7 +9,9 @@ import logging
 from pytest import fixture, raises
 
 from design_pytterns.factory import SubclassFactory
-from design_pytterns.errors import UnregisteredClassIdError
+from design_pytterns.errors import (
+    UnidentifiableSubclassError, UnregisteredClassIdError
+)
 from design_pytterns.interfaces import SubclassIdentifiable
 
 
@@ -85,7 +87,7 @@ def test_unidentifiable_base_class():
     class _UnidentifiableClass1(MyUnidentifiableBaseClass):
         pass
 
-    with raises(TypeError):
+    with raises(UnidentifiableSubclassError):
         SubclassFactory(MyUnidentifiableBaseClass)
 
 
