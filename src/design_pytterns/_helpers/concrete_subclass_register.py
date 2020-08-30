@@ -15,6 +15,25 @@ from design_pytterns.interfaces import SubclassIdentifiable
 
 
 class ConcreteSubclassRegister():
+    """
+    Concrete subclass register.
+
+    Analyze the subclass hierarchy of the given base class that
+    inherits from `SubclassIdentifiable` and registers all of the concrete
+    subclasses with their associated class id automatically.
+
+    Parameters
+    ----------
+    base_class: Type[SubclassIdentifiable]
+        The base class that servers as the starting point of the subclass
+        hierarchy analysis.
+
+    Raises
+    ------
+    TypeError
+        If `base_class` does not inherit from SubclassIdentifiable.
+
+    """
 
     __LOGGER = logging.getLogger(__name__)
 

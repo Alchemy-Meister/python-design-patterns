@@ -4,6 +4,8 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+"""Package distribution based on setuptools."""
+
 from os.path import abspath, dirname, join
 from setuptools import setup, find_packages
 

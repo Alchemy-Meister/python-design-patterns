@@ -19,6 +19,7 @@ class SingletonMeta(type):
         cls._instance = None
 
     def __call__(cls, *args: Any, **kwargs: Any) -> Any:
+        """Invoke ``__call__`` method only if global instance is `None`."""
         if cls._instance is None:
             cls._instance = super().__call__(*args, **kwargs)
         return cls._instance
