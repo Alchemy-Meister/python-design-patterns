@@ -1,2 +1,2 @@
-sphinx
-sphinx_theme
+sphinx==3.2.1
+sphinx_theme>=1.0
