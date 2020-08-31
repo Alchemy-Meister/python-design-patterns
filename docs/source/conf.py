@@ -13,7 +13,10 @@
 import os
 import sys
 
-import sphinx_theme
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
+if on_rtd:
+    import sphinx_theme
 
 sys.path.insert(0, os.path.abspath('../../src'))
 
@@ -68,6 +71,7 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-#---sphinx-themes-----
-html_theme = 'neo_rtd_theme'
-html_theme_path = [sphinx_theme.get_html_theme_path()]
+# ---sphinx-themes-----
+if not on_rtd:  # only import and set the theme if we're building docs locally
+    html_theme = 'neo_rtd_theme'
+    html_theme_path = [sphinx_theme.get_html_theme_path('neo_rtd_theme')]
