@@ -15,7 +15,7 @@ import sys
 
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
-if on_rtd:
+if not on_rtd:
     import sphinx_theme
 
 sys.path.insert(0, os.path.abspath('../../src'))
