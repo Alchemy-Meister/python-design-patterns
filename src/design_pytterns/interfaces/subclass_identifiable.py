@@ -9,6 +9,8 @@
 from collections.abc import Hashable
 from typing import Any, Optional
 
+from design_pytterns.errors import InvalidClassIdError, UnhashableClassIdError
+
 
 class SubclassIdentifiable():
     """
@@ -18,11 +20,16 @@ class SubclassIdentifiable():
     ``class_id`` keyword argument in the class definition with a `Hashable` not
     `None` value.
 
+    .. versionchanged:: 0.4.0
+
+        - raise `UnhashableClassIdError` instead of `TypeError`.
+        - raise `InvalidClassIdError` instead of `ValueError`.
+
     Raises
     ------
-    TypeError
+    UnhashableClassIdError
         If `class_id` is not `Hashable`.
-    ValueError
+    InvalidClassIdError
         If `class_id` is None for any of the subclasses.
 
     Examples
@@ -46,10 +53,10 @@ class SubclassIdentifiable():
         super().__init_subclass__(**kwargs)
 
         if not isinstance(class_id, Hashable):
-            raise TypeError(f'unhashable type: {type(class_id).__name__}')
+            raise UnhashableClassIdError(class_id)
 
         if SubclassIdentifiable.mro()[0] not in cls.__bases__:
             if class_id is None:
-                raise ValueError("invalid subclass identifier: 'None'")
+                raise InvalidClassIdError()
 
         cls.CLASS_ID = class_id

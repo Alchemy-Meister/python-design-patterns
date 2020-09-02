@@ -6,6 +6,7 @@
 
 from pytest import raises
 
+from design_pytterns.errors import InvalidClassIdError, UnhashableClassIdError
 from design_pytterns.interfaces import SubclassIdentifiable
 
 
@@ -44,13 +45,13 @@ def test_subclass_invalid_none_identifier_value():
     class Father(SubclassIdentifiable):
         pass
 
-    with raises(ValueError):
+    with raises(InvalidClassIdError):
         class _Son(Father):
             pass
 
 
 def test_base_unhashable_identifier():
-    with raises(TypeError):
+    with raises(UnhashableClassIdError):
         class _Father(SubclassIdentifiable, class_id={'is_dad': True}):
             pass
 
@@ -62,6 +63,6 @@ def test_subclass_unhashable_identifier():
     class Mother():
         pass
 
-    with raises(TypeError):
+    with raises(UnhashableClassIdError):
         class _Son(Father, Mother, class_id=['dad', 'mom']):
             pass
