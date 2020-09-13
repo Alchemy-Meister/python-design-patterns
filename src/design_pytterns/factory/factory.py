@@ -7,7 +7,7 @@
 """Generic Factory-pattern."""
 
 import logging
-from typing import Any, Hashable, MutableMapping, Optional
+from typing import Any, Hashable, MutableMapping, Optional, Type
 
 from design_pytterns.errors import UnregisteredClassIdError
 
@@ -27,14 +27,18 @@ class Factory():
 
     def __init__(
             self,
-            registered_classes: Optional[MutableMapping[Hashable, type]] = None
+            registered_classes: Optional[
+                MutableMapping[Hashable, Type[Any]]
+            ] = None
     ) -> None:
         if registered_classes is None:
-            self._registered_classes = {}
+            self._registered_classes: MutableMapping[Hashable, Type[Any]] = {}
         else:
             self._registered_classes = registered_classes
 
-    def register_class(self, class_id: Hashable, class_type: type) -> None:
+    def register_class(
+            self, class_id: Hashable, class_type: Type[Any]
+    ) -> None:
         """
         Register a class by a hashable identifier.
 
