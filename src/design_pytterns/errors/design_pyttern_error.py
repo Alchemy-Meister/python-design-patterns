@@ -31,3 +31,6 @@ class DesignPytternError(Exception):
         self.message = kwargs.pop('message', '')
 
         super().__init__(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return self.message
