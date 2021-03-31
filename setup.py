@@ -21,13 +21,13 @@ with open('README.md', 'r') as readme_file:
 
 install_requires = []
 
-tests_require = [
-    'coverage',
-    'pytest',
-    'pytest-cov'
-]
-
-extras_require = {'tests': tests_require}
+extras_require = {
+    'tests': [
+        'coverage',
+        'pytest',
+        'pytest-cov'
+    ]
+}
 
 setup(
     name=about['__title__'],
@@ -44,7 +44,6 @@ setup(
         'Development Status :: 2 - Pre-Alpha',
         'License :: OSI Approved :: '
         'GNU General Public License v3 or later (GPLv3+)',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
@@ -54,6 +53,5 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages(where='src'),
     install_requires=install_requires,
-    tests_require=tests_require,
     extras_require=extras_require
 )

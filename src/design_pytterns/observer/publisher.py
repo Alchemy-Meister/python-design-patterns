@@ -1,12 +1,14 @@
 #! /usr/bin/env python3
 
-# SPDX-FileCopyrightText: 2020 Alchemy-Meister
+# SPDX-FileCopyrightText: 2020-2021 Alchemy-Meister
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 """Generic Publisher-pattern."""
 
-from typing import Any, List
+from __future__ import annotations
+
+from typing import Any
 
 from .subscriber import Subscriber
 
@@ -14,10 +16,10 @@ from .subscriber import Subscriber
 class Publisher():
     """Generic Publisher-pattern."""
 
-    def __init__(self):
-        self._subscribers: List[Subscriber] = []
+    def __init__(self) -> None:
+        self._subscribers: list[Subscriber] = []
 
-    def subscribe(self, subscriber: Subscriber):
+    def subscribe(self, subscriber: Subscriber) -> None:
         """
         Register a new subscriber.
 
@@ -33,7 +35,7 @@ class Publisher():
         if subscriber not in self._subscribers:
             self._subscribers.append(subscriber)
 
-    def unsubscribe(self, subscriber: Subscriber):
+    def unsubscribe(self, subscriber: Subscriber) -> None:
         """
         Deregister the subscriber.
 
@@ -48,7 +50,7 @@ class Publisher():
         if subscriber in self._subscribers:
             self._subscribers.remove(subscriber)
 
-    def notify(self, *args: Any, **kwargs: Any):
+    def notify(self, *args: Any, **kwargs: Any) -> None:
         """
         Execute the ``update`` method of all the registered subscribers.
 
