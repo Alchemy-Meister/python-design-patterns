@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-# SPDX-FileCopyrightText: 2020 Alchemy-Meister
+# SPDX-FileCopyrightText: 2020-2021 Alchemy-Meister
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -23,10 +23,10 @@ class EventPublisher():
 
     """
 
-    def __init__(self, events: Sequence[Hashable]):
+    def __init__(self, events: Sequence[Hashable]) -> None:
         self._publishers = {event: Publisher() for event in events}
 
-    def subscribe(self, event: Hashable, subscriber: Subscriber):
+    def subscribe(self, event: Hashable, subscriber: Subscriber) -> None:
         """
         Register a new subscriber for an event.
 
@@ -43,7 +43,7 @@ class EventPublisher():
         """
         self._publishers[event].subscribe(subscriber)
 
-    def unsubscribe(self, event: Hashable, subscriber: Subscriber):
+    def unsubscribe(self, event: Hashable, subscriber: Subscriber) -> None:
         """
         Deregister the subscriber from an event.
 
@@ -60,7 +60,7 @@ class EventPublisher():
         """
         self._publishers[event].unsubscribe(subscriber)
 
-    def notify(self, event: Hashable, *args: Any, **kwargs: Any):
+    def notify(self, event: Hashable, *args: Any, **kwargs: Any) -> None:
         """
         Execute the ``update`` method of all the event subscribers.
 
