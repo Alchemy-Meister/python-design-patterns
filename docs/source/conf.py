@@ -24,11 +24,11 @@ sys.path.insert(0, os.path.abspath('../../src'))
 # -- Project information -----------------------------------------------------
 
 project = 'design-pytterns'
-copyright = '2020, Alchemy-Meister'
+copyright = '2020-2022, Alchemy-Meister'
 author = 'Alchemy-Meister'
 
 # The full version, including alpha/beta/rc tags
-release = '0.4.0'
+release = '0.7.0'
 
 
 # -- General configuration ---------------------------------------------------
