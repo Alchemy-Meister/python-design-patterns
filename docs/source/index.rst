@@ -11,6 +11,7 @@ Welcome to design-pytterns's documentation!
    :caption: Contents:
 
    modules
+   useful_links
 
 Indices and tables
 ==================
