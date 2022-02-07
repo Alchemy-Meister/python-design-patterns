@@ -10,25 +10,35 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
+from os import environ
+from pathlib import Path
 import sys
+from typing import Any, Dict
 
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+on_rtd = environ.get('READTHEDOCS', None) == 'True'
 
 if not on_rtd:
     import sphinx_theme
 
-sys.path.insert(0, os.path.abspath('../../src'))
+sys.path.insert(0, str(Path('../../src')))
 
+
+about: Dict[str, Any] = {}
+with open(
+    Path(__file__).resolve().parents[2] / 'src/design_pytterns/_about.py',
+    'r',
+    encoding='utf-8'
+) as about_file:
+    exec(about_file.read(), about)  # nosec
 
 # -- Project information -----------------------------------------------------
 
-project = 'design-pytterns'
-copyright = '2020-2022, Alchemy-Meister'
-author = 'Alchemy-Meister'
+project = about['__title__']
+copyright = f"2020-2022, {about['__author__']}"
+author = about['__author__']
 
 # The full version, including alpha/beta/rc tags
-release = '0.7.0'
+release = about['__version__']
 
 
 # -- General configuration ---------------------------------------------------
