@@ -6,26 +6,36 @@
 
 """Package distribution based on setuptools."""
 
+from __future__ import annotations
+
 from os.path import abspath, dirname, join
+from typing import Any
+
 from setuptools import setup, find_packages
 
-about = {}
+about: dict[str, Any] = {}
 
 with open(
-        join(dirname(abspath(__file__)), 'src/design_pytterns/_about.py'), 'r'
+        join(dirname(abspath(__file__)), 'src/design_pytterns/_about.py'),
+        'r',
+        encoding='utf-8'
 ) as about_file:
     exec(about_file.read(), about)  # nosec
 
-with open('README.md', 'r') as readme_file:
+with open('README.md', 'r', encoding='utf-8') as readme_file:
     readme = readme_file.read()
 
 install_requires = []
 
 extras_require = {
+    'docs': [
+        'sphinx >= 4.2.0, <5',
+        'sphinx_theme >= 1.0, <2'
+    ],
     'tests': [
-        'coverage',
-        'pytest',
-        'pytest-cov'
+        'coverage >= 6.3.1, <7',
+        'pytest >= 7.0.0, <8',
+        'pytest-cov >= 3.0.0, <4'
     ]
 }
 
@@ -47,6 +57,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Intended Audience :: Developers',
         "Operating System :: OS Independent"
     ],
