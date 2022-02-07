@@ -9,11 +9,11 @@
 from __future__ import annotations
 
 from os.path import abspath, dirname, join
-from typing import Any
+from typing import Any, Dict
 
 from setuptools import setup, find_packages
 
-about: dict[str, Any] = {}
+about: Dict[str, Any] = {}
 
 with open(
         join(dirname(abspath(__file__)), 'src/design_pytterns/_about.py'),
