@@ -6,7 +6,7 @@
 
 """Subpackage with internal helper classes."""
 
-from .concrete_subclass_register import ConcreteSubclassRegistrant
+from .concrete_subclass_registrant import ConcreteSubclassRegistrant
 from .finder import Finder
 
 __all__ = ['ConcreteSubclassRegistrant', 'Finder']
