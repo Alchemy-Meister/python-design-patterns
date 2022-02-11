@@ -1,24 +1,28 @@
 #! /usr/bin/env python3
 
-# SPDX-FileCopyrightText: 2020-2021 Alchemy-Meister
+# SPDX-FileCopyrightText: 2020-2022 Alchemy-Meister
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 """Implementation of SubclassIdentifiable interface-like class."""
 
 from collections.abc import Hashable
-from typing import Optional
+from inspect import isabstract
 
 from design_pytterns.errors import InvalidClassIdError, UnhashableClassIdError
 
 
 class SubclassIdentifiable():
     """
-    Inject ``CLASS_ID`` class attribute to all the subclasses of the base.
+    Inject ``class_id`` class attribute to all concrete subclasses of the base.
 
-    The subclasses of the base that inherits from this class require the
-    ``class_id`` keyword argument in the class definition with a `Hashable` not
-    `None` value.
+    The concrete subclasses of the base that inherits from this class require
+    the ``class_id`` keyword argument in the class definition with a `Hashable`
+    not `None` value.
+
+    .. versionchanged:: 0.7.0
+        - allow abstract classes to be unidentifiable.
+        - renamed `CLASS_ID` to `class_id`, as class attribute is not constant.
 
     .. versionchanged:: 0.4.0
 
@@ -42,16 +46,19 @@ class SubclassIdentifiable():
     >>> class MyIdentifiableSubclass(MyBase, class_id=1):
     ...    pass
     ...
-    >>> MyIdentifiableSubclass.CLASS_ID
+    >>> MyIdentifiableSubclass.class_id
     1
 
     """
 
-    def __init_subclass__(cls, class_id: Optional[Hashable] = None) -> None:
-        if not isinstance(class_id, Hashable):
-            raise UnhashableClassIdError(class_id)
+    class_id: Hashable = None
 
-        if SubclassIdentifiable not in cls.__bases__ and class_id is None:
-            raise InvalidClassIdError()
+    def __init_subclass__(cls, class_id: Hashable = None) -> None:
+        if not isabstract(cls):
+            if not isinstance(class_id, Hashable):
+                raise UnhashableClassIdError(class_id)
 
-        cls.CLASS_ID = class_id
+            if SubclassIdentifiable not in cls.__bases__ and class_id is None:
+                raise InvalidClassIdError()
+
+            cls.class_id = class_id
