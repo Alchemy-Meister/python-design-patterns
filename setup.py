@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-# SPDX-FileCopyrightText: 2020 Alchemy-Meister
+# SPDX-FileCopyrightText: 2020-2022 Alchemy-Meister
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -29,12 +29,12 @@ install_requires = []
 
 extras_require = {
     'docs': [
-        'sphinx >= 4.2.0, <5',
+        'sphinx >= 4.4.0, <5',
         'sphinx_theme >= 1.0, <2'
     ],
     'tests': [
         'coverage >= 6.3.1, <7',
-        'pytest >= 7.0.0, <8',
+        'pytest >= 7.0.1, <8',
         'pytest-cov >= 3.0.0, <4'
     ]
 }
