@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-# SPDX-FileCopyrightText: 2020 Alchemy-Meister
+# SPDX-FileCopyrightText: 2020-2022 Alchemy-Meister
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -49,18 +49,18 @@ class Factory():
         class_type : type
             The class type.
 
-        Warnings
-        --------
-        Overwrite any previously mapped type if its class id is already in use
-        and log a warning about the replacement.
+        Warns
+        -----
+        Overwrite any previously mapped type if its `class_id` is already in
+        use and log a warning about the replacement.
 
         """
         if class_id in self._registered_classes:
             self.__LOGGER.warning(
-                'class id %s is used by %s, replacing it with %s',
-                repr(class_id),
-                repr(self._registered_classes[class_id]),
-                repr(class_type)
+                'class id %r is used by %r, replacing it with %r',
+                class_id,
+                self._registered_classes[class_id],
+                class_type
             )
 
         self._registered_classes[class_id] = class_type
